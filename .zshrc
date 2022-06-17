@@ -19,13 +19,16 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-completions
+    web-search
+    copyfile
+    dirhistory
 )
 
 source $ZSH/oh-my-zsh.sh
 
 ## exports ##
 
-export SDKMAN_DIR="$HOME/.sdkman" && source "$HOME/.sdkman/bin/sdkman-init.sh" 
+#export SDKMAN_DIR="$HOME/.sdkman" && source "$HOME/.sdkman/bin/sdkman-init.sh" 
 export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
 export MCFLY_FUZZY=true && eval "$(mcfly init zsh)" 
 
