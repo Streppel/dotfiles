@@ -480,7 +480,7 @@ strip_workspace_numbers yes
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
 bindsym $mod+d exec rofi -modi drun -dpi 250 -show \
-	drun -config ~/.config/rofi/rofidmenu.rasiyay 
+	drun -config ~/.config/rofi/rofidmenu.rasi 
 
 #bindsym F9 exec rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi
