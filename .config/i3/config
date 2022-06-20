@@ -149,8 +149,8 @@ bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 # bindsym $mod+F1 exec xed ~/.config/i3/keybindings
 
 # Backlight control
-bindsym XF86MonBrightnessUp exec xbacklight +5 && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
-bindsym XF86MonBrightnessDown exec xbacklight -5 && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
+bindsym XF86MonBrightnessUp exec xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
+bindsym XF86MonBrightnessDown exec xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
 
 # change focus
 bindsym $mod+Left focus left
@@ -300,11 +300,10 @@ exec --no-startup-id dex --autostart --environment i3
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/monitor.sh
+#exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 exec --no-startup-id sleep 2 && nitrogen --restore
-#exec --no-startup-id feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros_i3.png
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -332,8 +331,7 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 #exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
-#exec --no-startup-id sleep 2 && xfce4-terminal
-exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
+exec --no-startup-id sleep 7 && firefox
 #exec --no-startup-id sleep 3 && thunar
 
 ###############
