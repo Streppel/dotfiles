@@ -115,6 +115,10 @@ bindsym $mod+Control Left resize shrink width 10 px or 10 ppt
 bindsym $mod+Control Up resize grow height 10 px or 10 ppt
 bindsym $mod+Control Down resize shrink height 10 px or 10 ppt
 
+# move focused workspace between monitors
+bindsym $mod+Shift+greater move workspace to output up
+bindsym $mod+Shift+less move workspace to output down
+
 #bindsym $mod+r mode "resize"
 
 ######################################
