@@ -313,22 +313,13 @@ exec --no-startup-id sleep 2 && nitrogen --restore
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
 
-# disable power saving (for example if using xscreensaver)
-#exec --no-startup-id xset -dpms
-
 # use xautolock to use autosuspend rules for mobile devices
 # https://wiki.archlinux.org/title/Session_lock#xautolock
 #exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
 
 
-# xscreensaver
-# https://www.jwz.org/xscreensaver
-#exec --no-startup-id xscreensaver --no-splash
-
 # Desktop notifications
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
-# alternative if you installed aside with XFCE4:
-# exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 # autotiling script
 # https://github.com/nwg-piotr/autotiling
