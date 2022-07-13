@@ -490,5 +490,8 @@ bindsym $mod+t exec rofi -show window \
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
 
-## increase cursor speed (xps 13 4k)
-exec xinput set-prop 'DLL0945:00 06CB:CDE6 Touchpad' 'libinput Accel Speed' 0.7
+## increase cursor speed
+exec xinput set-prop 'DLL0945:00 06CB:CDE6 Touchpad' 'libinput Accel Speed' 0.6
+
+## fix resolution
+exec_always ~/.screenlayout/layout.sh
