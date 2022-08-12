@@ -28,7 +28,7 @@ gaps outer 0
 #default_border normal
 
 # window title alignment
-#title_align center
+title_align center
 
 # Use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -216,9 +216,6 @@ bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
 bindsym Mod1+Shift+4 exec flameshot gui
 
-# Power Profiles menu switcher (rofi)
-bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
-
 ##########################################
 # configuration for workspace behaviour: #
 ##########################################
@@ -227,7 +224,7 @@ bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
 set $ws2 "2:"
-set $ws3 "3:"
+set $ws3 "3:"
 set $ws4 "4:"
 set $ws5 "5:"
 set $ws6 "6"
@@ -246,10 +243,7 @@ set $ws10 "10"
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-# assign [class="kitty"] $ws1
 assign [class="(?i)firefox"] $ws2
-# assign [class="Thunar"] $ws3
-# assign [class="Thunderbird"] $ws4
 assign [class="TelegramDesktop"] $ws5
 assign [class="Slack"] $ws5
 
@@ -262,6 +256,8 @@ for_window [class=TelegramDesktop] focus
 
 for_window [title="Authy"] floating enable
 for_window [title="Mnemosyne"] floating enable
+for_window [title="Todoist"] floating enable
+for_window [class="Spotify"] move to workspace $ws9
 
 ##############
 # compositor #
@@ -286,6 +282,12 @@ exec_always --no-startup-id picom -b
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+## increase cursor speed
+exec xinput set-prop 'DLL0945:00 06CB:CDE6 Touchpad' 'libinput Accel Speed' 0.6
+
+## set resolution for single/dual monitor setup
+exec --no-startup-id ~/.screenlayout/layout.sh
+
 # dex execute .desktop files + apps using /etc/xdg/autostart.
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
 # in this cases better disable dex and use manual starting apps using xdg/autostart
@@ -293,9 +295,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # https://github.com/jceb/dex
 #exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 exec --no-startup-id dex --autostart --environment i3
-
-# start welcome app
-#exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3 
 
 # num lock activated
 #exec --no-startup-id numlockx on
@@ -305,10 +304,6 @@ exec --no-startup-id dex --autostart --environment i3
 
 # start conky:
 #exec_always --no-startup-id conky
-
-# start a script to setup displays
-# uncomment the next line, use arandr to setup displays and save the file as monitor:
-#exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 exec --no-startup-id sleep 2 && nitrogen --restore
@@ -320,17 +315,15 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 # https://wiki.archlinux.org/title/Session_lock#xautolock
 #exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
 
-
 # Desktop notifications
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
-# autotiling script
-# https://github.com/nwg-piotr/autotiling
-# `yay -S autotiling ;) (it is in AUR)
-#exec_always --no-startup-id autotiling
-
 # Autostart apps as you like
+exec --no-startup-id sleep 3 && kitty 
 exec --no-startup-id sleep 7 && firefox
+exec --no-startup-id sleep 10 && telegram-desktop
+exec --no-startup-id sleep 13 && slack
+
 #exec --no-startup-id sleep 3 && thunar
 
 ###############
@@ -346,7 +339,7 @@ exec --no-startup-id sleep 7 && firefox
 #exec --no-startup-id nm-applet
 
 # clipman-applet
-#exec --no-startup-id xfce4-clipman
+exec --no-startup-id xfce4-clipman
 
 ##################
 # floating rules #
@@ -492,14 +485,4 @@ bindsym $mod+t exec rofi -show window \
 #exec --no-startup-id greenclip daemon>/dev/null
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
-
-###############
-# Extra stuff!#
-###############
-
-## increase cursor speed
-exec xinput set-prop 'DLL0945:00 06CB:CDE6 Touchpad' 'libinput Accel Speed' 0.6
-
-## set resolution for single/dual monitor setup
-# exec_always ~/.screenlayout/layout.sh
 
