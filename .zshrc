@@ -16,6 +16,7 @@ HIST_STAMPS="mm/dd/yyyy"
 unsetopt correct_all # stops auto correction
 
 plugins=(
+    fzf-tab
     git
     golang
     zsh-autosuggestions
@@ -30,13 +31,13 @@ source $ZSH/oh-my-zsh.sh
 
 ## exports ##
 
-#export SDKMAN_DIR="$HOME/.sdkman" && source "$HOME/.sdkman/bin/sdkman-init.sh" 
 export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
 export MCFLY_FUZZY=true && eval "$(mcfly init zsh)" 
 
 ## aliases ##
-
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 ## asdf
 . /opt/asdf-vm/asdf.sh
+
+source /home/natans/.config/broot/launcher/bash/br
