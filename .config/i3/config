@@ -192,7 +192,7 @@ bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 # Multimedia Keys
 
 # volume
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocs
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 
 # gradular volume control
@@ -283,7 +283,7 @@ exec_always --no-startup-id picom -b
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ## increase cursor speed
-exec xinput set-prop 'DLL0945:00 06CB:CDE6 Touchpad' 'libinput Accel Speed' 0.6
+exec xinput set-prop 'DLL0945:00 06CB:CDE6 Touchpad' 'libinput Accel Speed' 0.4
 
 ## set resolution for single/dual monitor setup
 exec --no-startup-id ~/.screenlayout/layout.sh
