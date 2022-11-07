@@ -36,6 +36,7 @@ export MCFLY_FUZZY=true && eval "$(mcfly init zsh)"
 
 ## aliases ##
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias tt="taskwarrior-tui"
 
 ## asdf
 . /opt/asdf-vm/asdf.sh
