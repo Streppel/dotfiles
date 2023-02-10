@@ -224,7 +224,7 @@ bindsym Mod1+Shift+4 exec flameshot gui
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
 set $ws2 "2:"
-set $ws3 "3:"
+set $ws3 "3:🖳"
 set $ws4 "4:"
 set $ws5 "5:"
 set $ws6 "6"
@@ -242,9 +242,6 @@ set $ws10 "10"
 #workspace $ws4 output HDMI-0
 #workspace $ws5 output HDMI-0
 
-# bind program to workspace and focus to them on startup:
-assign [class="(?i)firefox"] $ws2
-
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
@@ -255,10 +252,25 @@ for_window [class=TelegramDesktop] focus
 for_window [title="Authy"] floating enable
 for_window [title="Mnemosyne"] floating enable
 for_window [title="Todoist"] floating enable
-for_window [class="Spotify"] move to workspace $ws9
+
+# default app workspaces
+
+#  www
+for_window [class="(?i)firefox"] move to workspace $ws2
+
+#  creating
+for_window [title="Goland"] move to workspace $ws3
+
+#  organizing
+for_window [title="Todoist"] move to workspace $ws4
+for_window [title="Obsidian"] move to workspace $ws4
+
+#  communicating
 for_window [class="TelegramDesktop"] move to workspace $ws5
 for_window [class="Slack"] move to workspace $ws5
-for_window [title="Todoist"] move to workspace $ws3
+
+#  d-_-b
+for_window [class="Spotify"] move to workspace $ws9
 
 ##############
 # compositor #
