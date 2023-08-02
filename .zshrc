@@ -7,7 +7,7 @@ export PATH=$HOME/go/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gnzh"
+ZSH_THEME="lambda"
 
 zstyle ':omz:update' mode auto # update automatically without asking
 COMPLETION_WAITING_DOTS="true"
