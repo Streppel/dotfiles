@@ -17,7 +17,6 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-completions
-    copyfile
     dirhistory
     timewarrior
 )
