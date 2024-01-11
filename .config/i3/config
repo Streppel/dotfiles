@@ -491,4 +491,3 @@ bindsym $mod+t exec rofi -show window \
 
 # thought capture with todoist
 bindsym $mod+x exec --no-startup-id bash -c 'new_task=$(rofi -dmenu -p "New Task") && [ ! -z "$new_task" ] && todoist-cli add --project-name Inbox "$new_task"'
-

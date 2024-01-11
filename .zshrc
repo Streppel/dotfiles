@@ -1,6 +1,4 @@
 export PATH=$HOME/go/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -22,6 +20,7 @@ plugins=(
     web-search
     copyfile
     dirhistory
+    timewarrior
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -35,4 +34,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ## asdf
 . /opt/asdf-vm/asdf.sh
 
+## broot
 source /home/natans/.config/broot/launcher/bash/br
+
