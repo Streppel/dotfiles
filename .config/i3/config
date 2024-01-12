@@ -251,7 +251,6 @@ for_window [class=TelegramDesktop] focus
 
 for_window [title="Authy"] floating enable
 for_window [title="Mnemosyne"] floating enable
-for_window [title="Todoist"] floating enable
 
 # default app workspaces
 
@@ -263,6 +262,7 @@ for_window [title="Goland"] move to workspace $ws3
 
 #  organizing
 for_window [title="Todoist"] move to workspace $ws4
+for_window [title="TickTick"] move to workspace $ws4
 for_window [title="Obsidian"] move to workspace $ws4
 
 #  communicating
@@ -332,11 +332,10 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
 # Autostart apps as you like
-exec --no-startup-id sleep 1 && kitty 
-exec --no-startup-id sleep 1 && firefox
-exec --no-startup-id sleep 5 && telegram-desktop
-exec --no-startup-id sleep 13 && slack
-exec --no-startup-id sleep 5 && todoist
+exec --no-startup-id kitty 
+exec --no-startup-id firefox
+exec --no-startup-id telegram-desktop
+exec --no-startup-id sleep 10 slack
 
 ###############
 # system tray #
