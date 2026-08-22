@@ -1,4 +1,4 @@
-export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/bin:$HOME/go/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -18,20 +18,16 @@ plugins=(
     zsh-syntax-highlighting
     zsh-completions
     dirhistory
-    timewarrior
 )
 
 source $ZSH/oh-my-zsh.sh
-
-## exports
 export MCFLY_FUZZY=true && eval "$(mcfly init zsh)" 
+[[ -f "$HOME/.config/broot/launcher/bash/br" ]] && source "$HOME/.config/broot/launcher/bash/br"
+eval "$(zoxide init zsh)"
+alias ls='eza --icons=auto --group-directories-first'
+alias ll='eza -lah --icons=auto --group-directories-first'
+alias cat='bat'
 
-## aliases
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-## asdf
-. /opt/asdf-vm/asdf.sh
-
-## broot
-source /home/natans/.config/broot/launcher/bash/br
-
+# for fzf-tab
+autoload -U compinit; compinit
+source ~/.oh-my-zsh/plugins/fzf-tab/fzf-tab.plugin.zsh

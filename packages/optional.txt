@@ -1,0 +1,20 @@
+# Not installed by default. Mix of official and AUR.
+
+# AUR
+anytype-bin
+brave-bin
+goland
+rustrover
+spotify
+grok-build
+neohtop
+yay-bin
+oh-my-zsh-git
+
+# Official
+steam
+qbittorrent
+ollama
+nvtop
+s-tui
+stress

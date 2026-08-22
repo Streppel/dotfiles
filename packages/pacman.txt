@@ -1,0 +1,96 @@
+# Core desktop (Arch). install.sh skips comments and blanks.
+hyprland
+hyprlauncher
+hyprpaper
+hyprsunset
+hyprlock
+xdg-desktop-portal-hyprland
+xorg-xwayland
+waybar
+kitty
+uwsm
+
+# Auth / session
+polkit-kde-agent
+greetd
+greetd-tuigreet
+
+# Audio / video
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+pamixer
+pavucontrol
+playerctl
+
+# Network / bluetooth
+networkmanager
+iwd
+network-manager-applet
+bluez
+bluez-utils
+bluetui
+
+# Shell / CLI
+zsh
+git
+neovim
+vim
+bat
+eza
+fzf
+mcfly
+zoxide
+broot
+btop
+nvtop
+htop
+dust
+yazi
+tldr
+wget
+xh
+lazygit
+lazydocker
+man-db
+7zip
+
+# Files / desktop
+thunar
+thunar-archive-plugin
+thunar-media-tags-plugin
+thunar-volman
+tumbler
+ffmpegthumbnailer
+file-roller
+gwenview
+xdg-utils
+qt5-wayland
+qt6-wayland
+
+# Screenshots / clipboard
+grim
+slurp
+wl-clipboard
+satty
+swappy
+dunst
+
+# Input / brightness
+brightnessctl
+
+# Fonts
+ttf-jetbrains-mono-nerd
+
+# Apps you actually live in
+firefox
+telegram-desktop
+
+# Dev
+base-devel
+go
+rust
+docker
+python

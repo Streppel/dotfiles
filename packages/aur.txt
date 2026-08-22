@@ -1,0 +1,2 @@
+# Needed for this rice (yay).
+ttf-joypixels
