@@ -63,6 +63,8 @@ link .config/hypr/hyprland.conf
 link .config/hypr/hyprlauncher.conf
 link .config/hypr/hyprtoolkit.conf
 link .config/hypr/hyprsunset.conf
+link .config/hypr/hypridle.conf
+link .config/hypr/hyprlock.conf
 link .config/hypr/scripts/screenshot.sh
 link .config/hypr/scripts/ocr.sh
 link .config/tensaku/config.toml

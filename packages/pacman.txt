@@ -4,6 +4,7 @@ hyprlauncher
 hyprpaper
 hyprsunset
 hyprlock
+hypridle
 xdg-desktop-portal-hyprland
 xorg-xwayland
 waybar
@@ -74,8 +75,6 @@ qt6-wayland
 grim
 slurp
 wl-clipboard
-satty
-swappy
 dunst
 tesseract
 tesseract-data-eng
