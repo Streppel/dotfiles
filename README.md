@@ -8,10 +8,9 @@ Previously this repo was i3 on a Dell XPS 13 (2023). That tree is gone from `mas
 
 ```sh
 sudo pacman -S --needed git base-devel
-# install yay if you do not have it
 git clone https://github.com/Streppel/dotfiles.git ~/code/dotfiles
 cd ~/code/dotfiles
-./install.sh
+./install.sh   # pacman, then yay-bin if missing, then AUR
 ```
 
 `install.sh` installs the package lists, oh-my-zsh plugins, and symlinks configs from this repo into `$HOME`. Existing files are renamed `*.bak-<timestamp>`, not overwritten.
@@ -36,7 +35,7 @@ Not tracked on purpose: browsers, Steam, Anytype data, SSH/GPG keys, git identit
 - `Super+T` terminal · `Super+Q` kill · `Super+E` files · `Super+W` firefox
 - `Super+Space` hyprlauncher · `Super+L` lock (`hyprlock` if installed)
 - `Super+Tab` / `Shift+Tab` next/prev workspace
-- `Print` region to clipboard · `Shift+Print` full · `Super+Print` file + clipboard
+- `Print` region / `Shift+Print` full → Tensaku (Enter clipboard, Ctrl+S `~/Pictures`) · `Ctrl+Print` OCR
 - Click waybar mem/cpu/temp/net → btop · gpu → nvtop · disk → thunar
 
 ## Machine-specific (this desktop)

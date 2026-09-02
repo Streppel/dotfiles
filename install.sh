@@ -14,12 +14,16 @@ pkg_list() {
 echo "==> packages (pacman)"
 sudo pacman -S --needed --noconfirm $(pkg_list "$PACKAGES/pacman.txt")
 
-if need yay; then
-  echo "==> packages (AUR)"
-  yay -S --needed --noconfirm $(pkg_list "$PACKAGES/aur.txt")
-else
-  echo "==> skip AUR (no yay). Install yay, then: yay -S --needed - < $PACKAGES/aur.txt"
+if ! need yay; then
+  echo "==> install yay"
+  tmp="$(mktemp -d)"
+  git clone --depth 1 https://aur.archlinux.org/yay-bin.git "$tmp/yay-bin"
+  (cd "$tmp/yay-bin" && makepkg -si --noconfirm --needed)
+  rm -rf "$tmp"
 fi
+
+echo "==> packages (AUR)"
+yay -S --needed --noconfirm $(pkg_list "$PACKAGES/aur.txt")
 
 echo "==> oh-my-zsh + plugins"
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
@@ -59,6 +63,9 @@ link .config/hypr/hyprland.conf
 link .config/hypr/hyprlauncher.conf
 link .config/hypr/hyprtoolkit.conf
 link .config/hypr/hyprsunset.conf
+link .config/hypr/scripts/screenshot.sh
+link .config/hypr/scripts/ocr.sh
+link .config/tensaku/config.toml
 link .config/waybar/config.jsonc
 link .config/waybar/modules.jsonc
 link .config/waybar/style.css
@@ -67,7 +74,9 @@ link .config/waybar/scripts/gpu.sh
 link .config/kitty/kitty.conf
 link .config/btop/btop.conf
 link .config/mimeapps.list
-chmod 755 "$DOTFILES/.config/waybar/scripts/gpu.sh"
+chmod 755 "$DOTFILES/.config/waybar/scripts/gpu.sh" \
+  "$DOTFILES/.config/hypr/scripts/screenshot.sh" \
+  "$DOTFILES/.config/hypr/scripts/ocr.sh"
 
 if ! need br; then
   echo "==> broot shell function (optional: run 'broot --install' later)"

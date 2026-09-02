@@ -1,0 +1,15 @@
+[general]
+copy-command = "wl-copy"
+actions-on-enter = ["save-to-clipboard", "exit"]
+output-filename = "~/Pictures/%Y-%m-%d_%H-%M-%S.png"
+save-after-copy = false
+early-exit = false
+close-on-copy = true
+close-on-save = false
+initial-tool = "arrow"
+disable-notifications = false
+annotation-size-factor = 1.0
+
+[font]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"

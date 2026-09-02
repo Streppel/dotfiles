@@ -77,6 +77,9 @@ wl-clipboard
 satty
 swappy
 dunst
+tesseract
+tesseract-data-eng
+tesseract-data-por
 
 # Input / brightness
 brightnessctl

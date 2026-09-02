@@ -1,2 +1,4 @@
 # Needed for this rice (yay).
 ttf-joypixels
+localsend-bin
+tensaku
