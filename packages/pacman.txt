@@ -49,7 +49,6 @@ btop
 nvtop
 htop
 dust
-yazi
 tldr
 wget
 xh
@@ -59,11 +58,7 @@ man-db
 7zip
 
 # Files / desktop
-thunar
-thunar-archive-plugin
-thunar-media-tags-plugin
-thunar-volman
-tumbler
+yazi
 ffmpegthumbnailer
 file-roller
 gwenview

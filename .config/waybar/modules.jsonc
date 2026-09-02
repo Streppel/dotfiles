@@ -72,7 +72,7 @@
     "interval": 30,
     "format": "<span foreground='#727169'>disk</span>:{percentage_used}%",
     "tooltip-format": "{path}\n{used} / {total} ({percentage_used}%)\nFree: {free}",
-    "on-click": "thunar ~"
+    "on-click": "kitty --class yazi -e yazi ~"
   },
 
   "group/netio": {

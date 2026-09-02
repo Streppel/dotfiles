@@ -32,11 +32,11 @@ Not tracked on purpose: browsers, Steam, Anytype data, SSH/GPG keys, git identit
 
 ## Binds (short)
 
-- `Super+T` terminal · `Super+Q` kill · `Super+E` files · `Super+W` firefox
+- `Super+T` terminal · `Super+Q` kill · `Super+E` yazi · `Super+W` firefox
 - `Super+Space` hyprlauncher · `Super+L` lock · idle lock at 30 min (`hypridle`)
 - `Super+Tab` / `Shift+Tab` next/prev workspace
 - `Print` region / `Shift+Print` full → Tensaku (Enter clipboard, Ctrl+S `~/Pictures`) · `Ctrl+Print` OCR
-- Click waybar mem/cpu/temp/net → btop · gpu → nvtop · disk → thunar
+- Click waybar mem/cpu/temp/net → btop · gpu → nvtop · disk → yazi
 
 ## Machine-specific (this desktop)
 

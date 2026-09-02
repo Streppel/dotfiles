@@ -26,4 +26,4 @@ x-scheme-handler/anytype=anytype.desktop
 x-scheme-handler/chrome=firefox.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
-inode/directory=thunar.desktop
+inode/directory=yazi.desktop
