@@ -15,7 +15,8 @@
     "cpu",
     "temperature",
     "custom/gpu",
-    "disk"
+    "disk",
+    "group/netio"
   ],
   
   "modules-right": [

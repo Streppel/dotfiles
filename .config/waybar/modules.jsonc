@@ -75,6 +75,30 @@
     "on-click": "thunar ~"
   },
 
+  "group/netio": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/netkey",
+      "network#io"
+    ]
+  },
+
+  "custom/netkey": {
+    "format": "<span foreground='#727169'>net</span>",
+    "tooltip": false,
+    "on-click": "kitty --class sysmon -e btop"
+  },
+
+  "network#io": {
+    "interval": 1,
+    "format": "<span line_height='0.8'><span size='smaller' foreground='#e46876'>↑{bandwidthUpBytes:>}</span>\n<span size='smaller' foreground='#7dc4e4'>↓{bandwidthDownBytes:>}</span></span>",
+    "format-disconnected": "<span line_height='0.8'>\n<span size='smaller' foreground='#7dc4e4'>↓ down</span></span>",
+    "tooltip-format": "{ifname}\n↓ {bandwidthDownBytes}/s  ↑ {bandwidthUpBytes}/s\n↓ {bandwidthDownBits}  ↑ {bandwidthUpBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "min-length": 8,
+    "on-click": "kitty --class sysmon -e btop"
+  },
+
   // Idle inhibitor
   "idle_inhibitor": {
     "format": "{icon}",

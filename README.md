@@ -37,7 +37,7 @@ Not tracked on purpose: browsers, Steam, Anytype data, SSH/GPG keys, git identit
 - `Super+Space` hyprlauncher · `Super+L` lock (`hyprlock` if installed)
 - `Super+Tab` / `Shift+Tab` next/prev workspace
 - `Print` region to clipboard · `Shift+Print` full · `Super+Print` file + clipboard
-- Click waybar mem/cpu/temp → btop · gpu → nvtop · disk → thunar
+- Click waybar mem/cpu/temp/net → btop · gpu → nvtop · disk → thunar
 
 ## Machine-specific (this desktop)
 
