@@ -59,6 +59,7 @@ link() {
 }
 
 link .zshrc
+link .config/hypr/hyprland.lua
 link .config/hypr/hyprland.conf
 link .config/hypr/hyprlauncher.conf
 link .config/hypr/hyprtoolkit.conf
@@ -67,6 +68,7 @@ link .config/hypr/hypridle.conf
 link .config/hypr/hyprlock.conf
 link .config/hypr/scripts/screenshot.sh
 link .config/hypr/scripts/ocr.sh
+link .config/hypr/scripts/logout.sh
 link .config/tensaku/config.toml
 link .config/waybar/config.jsonc
 link .config/waybar/modules.jsonc
@@ -78,7 +80,8 @@ link .config/btop/btop.conf
 link .config/mimeapps.list
 chmod 755 "$DOTFILES/.config/waybar/scripts/gpu.sh" \
   "$DOTFILES/.config/hypr/scripts/screenshot.sh" \
-  "$DOTFILES/.config/hypr/scripts/ocr.sh"
+  "$DOTFILES/.config/hypr/scripts/ocr.sh" \
+  "$DOTFILES/.config/hypr/scripts/logout.sh"
 
 if ! need br; then
   echo "==> broot shell function (optional: run 'broot --install' later)"
