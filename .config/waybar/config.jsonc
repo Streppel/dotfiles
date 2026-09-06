@@ -28,6 +28,7 @@
     "pulseaudio",
     "network",
     "bluetooth",
+    "custom/orwatch",
     "clock",
     "custom/notification",
     "tray"

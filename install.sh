@@ -114,4 +114,9 @@ Git identity is not in this repo. Set it:
   git config --global user.email "..."
 
 Hardware notes in README.md (GPU PCI id, CPU hwmon path, keyboard layout).
+
+orwatch (waybar OpenRouter spend), after rust is on PATH:
+  git clone https://github.com/Streppel/orwatch.git ~/code/rust/orwatch
+  cargo install --path ~/code/rust/orwatch --root ~/.local
+  # then uncomment OPENROUTER_API_KEY in ~/.secrets
 EOF

@@ -170,6 +170,13 @@
     "on-click-right": "nm-connection-editor"
   },
 
+  "custom/orwatch": {
+    "exec": "~/.local/bin/orwatch waybar",
+    "return-type": "json",
+    "interval": 60,
+    "on-click": "kitty --class sysmon -o remember_window_size=no -o initial_window_width=1700 -o initial_window_height=900 --hold -e ~/.local/bin/orwatch"
+  },
+
   // Clock
   "clock": {
     "format": "{:%H:%M  %a %d/%m}",

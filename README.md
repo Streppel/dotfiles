@@ -17,13 +17,21 @@ cd ~/code/dotfiles
 
 Then enable greetd / NetworkManager / bluetooth (see the script epilogue), log out, log in.
 
+orwatch (OpenRouter spend on the waybar) is a separate repo. After rust is installed:
+
+```sh
+git clone https://github.com/Streppel/orwatch.git ~/code/rust/orwatch
+cargo install --path ~/code/rust/orwatch --root ~/.local
+# uncomment OPENROUTER_API_KEY in ~/.secrets
+```
+
 ## Layout
 
 | path | what |
 |---|---|
 | `.zshrc` | oh-my-zsh lambda, fzf-tab, autosuggestions, mcfly, zoxide, eza/bat |
 | `.config/hypr/` | Hyprland + hyprlauncher + hyprtoolkit (Kanagawa) + hyprsunset |
-| `.config/waybar/` | statusline + `scripts/gpu.sh` |
+| `.config/waybar/` | statusline + `scripts/gpu.sh` + `custom/orwatch` |
 | `.config/kitty/` | JetBrainsMono NF + JoyPixels |
 | `.config/btop/` | gruvbox |
 | `packages/` | pacman / AUR / optional extras |
