@@ -267,9 +267,9 @@ hl.window_rule({
 
 hl.window_rule({
     name  = "float-sysmon",
-    match = { class = "sysmon" },
+    match = { class = "^sysmon$" },
     float  = true,
-    size   = { "85%", "80%" },
+    size   = { "(monitor_w*0.85)", "(monitor_h*0.80)" },
     center = true,
 })
 

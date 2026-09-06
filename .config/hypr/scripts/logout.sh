@@ -16,6 +16,11 @@ if [[ "${1:-}" != --prompt ]]; then
     exit 0
   fi
 
+  # Isolated cache so this 460x220 window does not become kitty's
+  # remembered size for btop/nvtop (waybar sysmon) and other terminals.
+  export KITTY_CACHE_DIRECTORY="${XDG_RUNTIME_DIR:-/tmp}/kitty-logout-confirm"
+  mkdir -p "$KITTY_CACHE_DIRECTORY"
+
   exec kitty \
     --class logout-confirm \
     --title "Logout" \
@@ -48,38 +53,25 @@ BG=$'\e[48;2;10;10;15m'
 FG=$'\e[38;2;220;215;186m'
 MUTED=$'\e[38;2;114;113;105m'
 MAUVE=$'\e[38;2;149;127;184m'
-PILL=$'\e[48;2;42;42;55m'
-PILL_FG=$'\e[38;2;200;192;147m'
-SEL_CANCEL=$'\e[48;2;118;148;106m\e[38;2;10;10;15m'
 SEL_LOGOUT=$'\e[48;2;232;36;36m\e[38;2;10;10;15m'
 RST=$'\e[0m'"$BG"
 
 BTN_ROW=1
-CANCEL_X1=1 CANCEL_X2=1
 LOGOUT_X1=1 LOGOUT_X2=1
 
 fill() { printf '%s\e[K\n' "$1"; }
 
 draw() {
-  local sel=$1
-  local cols lines pad_top cancel_btn logout_btn pad
+  local cols lines pad_top pad
   cols=$(tput cols 2>/dev/null || echo 44)
   lines=$(tput lines 2>/dev/null || echo 12)
   ((cols < 36)) && cols=36
 
-  if ((sel == 0)); then
-    cancel_btn="${SEL_CANCEL}  cancel  ${RST}"
-    logout_btn="${PILL}${PILL_FG}  log out  ${RST}"
-  else
-    cancel_btn="${PILL}${PILL_FG}  cancel  ${RST}"
-    logout_btn="${SEL_LOGOUT}  log out  ${RST}"
-  fi
-
-  local row1 row2 row3 row4
-  row1="${MAUVE}session${FG}"
-  row2="${FG}Log out of Hyprland?${RST}"
-  row3="${cancel_btn}   ${logout_btn}"
-  row4="${MUTED}← → · enter · esc · click${RST}"
+  local logout_btn="${SEL_LOGOUT}  log out  ${RST}"
+  local row1="${MAUVE}session${FG}"
+  local row2="${FG}Log out of Hyprland?${RST}"
+  local row3="$logout_btn"
+  local row4="${MUTED}enter · esc${RST}"
 
   center() {
     local text=$1 visible=$2
@@ -90,14 +82,12 @@ draw() {
 
   pad_top=$(( (lines - 7) / 2 ))
   ((pad_top < 1)) && pad_top=1
-  pad=$(( (cols - 24) / 2 ))
+  pad=$(( (cols - 11) / 2 ))
   ((pad < 0)) && pad=0
-  # 1-based cell coords for mouse hits (cancel 10 cols, gap 3, log out 11)
+  # 1-based cell coords for mouse hits ("  log out  " = 11 cols)
   BTN_ROW=$((pad_top + 5))
-  CANCEL_X1=$((pad + 1))
-  CANCEL_X2=$((pad + 10))
-  LOGOUT_X1=$((pad + 14))
-  LOGOUT_X2=$((pad + 24))
+  LOGOUT_X1=$((pad + 1))
+  LOGOUT_X2=$((pad + 11))
 
   printf '%s\e[H\e[2J' "$BG$FG"
   local i
@@ -108,28 +98,20 @@ draw() {
   fill ""
   fill "$(center "$row2" 21)"
   fill ""
-  fill "$(center "$row3" 24)"
+  fill "$(center "$row3" 11)"
   fill ""
-  fill "$(center "$row4" 26)"
+  fill "$(center "$row4" 11)"
   for ((i = pad_top + 7; i < lines; i++)); do
     fill ""
   done
 }
 
-hit_button() {
+hit_logout() {
   local x=$1 y=$2
-  ((y != BTN_ROW)) && return 1
-  if ((x >= CANCEL_X1 && x <= CANCEL_X2)); then
-    echo cancel
-  elif ((x >= LOGOUT_X1 && x <= LOGOUT_X2)); then
-    echo logout
-  else
-    return 1
-  fi
+  ((y == BTN_ROW && x >= LOGOUT_X1 && x <= LOGOUT_X2))
 }
 
-selected=0
-draw "$selected"
+draw
 
 read_key() {
   local k c seq
@@ -156,32 +138,15 @@ while key=$(read_key); do
     $'\e'|q|Q|n|N)
       exit 0
       ;;
-    $'\e[D'|h|H|$'\t')
-      selected=$((1 - selected))
-      draw "$selected"
-      ;;
-    $'\e[C'|l|L)
-      selected=$((1 - selected))
-      draw "$selected"
-      ;;
-    y|Y)
+    y|Y|''|$'\n'|$'\r'|' ')
       logout_now
-      ;;
-    ''|$'\n'|$'\r'|' ')
-      if ((selected == 1)); then
-        logout_now
-      else
-        exit 0
-      fi
       ;;
     $'\e['\<*)
       # SGR mouse: \e[<btn;x;yM (press) / m (release)
       if [[ $key =~ ^$'\e''\[<0\;([0-9]+)\;([0-9]+)M$' ]]; then
-        hit=$(hit_button "${BASH_REMATCH[1]}" "${BASH_REMATCH[2]}" || true)
-        case "$hit" in
-          cancel) exit 0 ;;
-          logout) logout_now ;;
-        esac
+        if hit_logout "${BASH_REMATCH[1]}" "${BASH_REMATCH[2]}"; then
+          logout_now
+        fi
       fi
       ;;
   esac

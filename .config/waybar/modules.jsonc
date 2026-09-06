@@ -45,11 +45,11 @@
   // Memory / CPU / Temp
   "memory": {
     "format": "<span foreground='#727169'>mem</span>:{}%",
-    "on-click": "kitty --class sysmon -e btop"
+    "on-click": "kitty --class sysmon -o remember_window_size=no -o initial_window_width=1700 -o initial_window_height=900 -e btop"
   },
   "cpu": {
     "format": "<span foreground='#727169'>cpu</span>:{usage}%",
-    "on-click": "kitty --class sysmon -e btop"
+    "on-click": "kitty --class sysmon -o remember_window_size=no -o initial_window_width=1700 -o initial_window_height=900 -e btop"
   },
   "temperature": {
     "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
@@ -57,14 +57,14 @@
     "critical-threshold": 80,
     "format": "{temperatureC}°",
     "tooltip-format": "CPU (k10temp Tctl): {temperatureC}°C",
-    "on-click": "kitty --class sysmon -e btop"
+    "on-click": "kitty --class sysmon -o remember_window_size=no -o initial_window_width=1700 -o initial_window_height=900 -e btop"
   },
 
   "custom/gpu": {
     "exec": "~/.config/waybar/scripts/gpu.sh",
     "return-type": "json",
     "interval": 2,
-    "on-click": "kitty --class sysmon -e nvtop"
+    "on-click": "kitty --class sysmon -o remember_window_size=no -o initial_window_width=1700 -o initial_window_height=900 -e nvtop"
   },
 
   "disk": {
@@ -86,7 +86,7 @@
   "custom/netkey": {
     "format": "<span foreground='#727169'>net</span>",
     "tooltip": false,
-    "on-click": "kitty --class sysmon -e btop"
+    "on-click": "kitty --class sysmon -o remember_window_size=no -o initial_window_width=1700 -o initial_window_height=900 -e btop"
   },
 
   "network#io": {
@@ -96,7 +96,7 @@
     "tooltip-format": "{ifname}\n↓ {bandwidthDownBytes}/s  ↑ {bandwidthUpBytes}/s\n↓ {bandwidthDownBits}  ↑ {bandwidthUpBits}",
     "tooltip-format-disconnected": "Disconnected",
     "min-length": 8,
-    "on-click": "kitty --class sysmon -e btop"
+    "on-click": "kitty --class sysmon -o remember_window_size=no -o initial_window_width=1700 -o initial_window_height=900 -e btop"
   },
 
   // Idle inhibitor
