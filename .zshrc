@@ -31,3 +31,6 @@ alias cat='bat'
 # for fzf-tab
 autoload -U compinit; compinit
 source ~/.oh-my-zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+
+# Machine-local secrets (API keys). Not in git. Copy .secrets.example to ~/.secrets
+[[ -f "$HOME/.secrets" ]] && source "$HOME/.secrets"

@@ -4,6 +4,7 @@
 *.swp
 .env
 .env.*
+.secrets
 credentials
 .git-credentials
 *.pem

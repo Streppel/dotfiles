@@ -59,6 +59,12 @@ link() {
 }
 
 link .zshrc
+
+if [[ ! -f "$HOME/.secrets" ]]; then
+  cp "$DOTFILES/.secrets.example" "$HOME/.secrets"
+  chmod 600 "$HOME/.secrets"
+  echo "==> created ~/.secrets from example (fill in API keys)"
+fi
 link .config/hypr/hyprland.lua
 link .config/hypr/hyprland.conf
 link .config/hypr/hyprlauncher.conf
