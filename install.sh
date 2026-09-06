@@ -98,6 +98,13 @@ if [[ "$SHELL" != *zsh ]]; then
   chsh -s "$(command -v zsh)" || echo "    chsh failed; run it yourself"
 fi
 
+echo "==> orwatch"
+mkdir -p "$HOME/code/rust"
+if [[ ! -d "$HOME/code/rust/orwatch/.git" ]]; then
+  git clone --depth 1 https://github.com/Streppel/orwatch.git "$HOME/code/rust/orwatch"
+fi
+cargo install --path "$HOME/code/rust/orwatch" --root "$HOME/.local" --locked
+
 mkdir -p "$HOME/Pictures" "$HOME/code"
 
 cat <<'EOF'
@@ -115,8 +122,6 @@ Git identity is not in this repo. Set it:
 
 Hardware notes in README.md (GPU PCI id, CPU hwmon path, keyboard layout).
 
-orwatch (waybar OpenRouter spend), after rust is on PATH:
-  git clone https://github.com/Streppel/orwatch.git ~/code/rust/orwatch
-  cargo install --path ~/code/rust/orwatch --root ~/.local
-  # then uncomment OPENROUTER_API_KEY in ~/.secrets
+orwatch is installed to ~/.local/bin. Uncomment OPENROUTER_API_KEY in ~/.secrets
+or the waybar module stays on "or: —".
 EOF
