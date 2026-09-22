@@ -15,7 +15,7 @@
     "cpu",
     "temperature",
     "custom/gpu",
-    "disk",
+    "group/diskio",
     "group/netio"
   ],
   

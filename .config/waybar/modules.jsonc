@@ -67,11 +67,24 @@
     "on-click": "kitty --class sysmon -o remember_window_size=no -o initial_window_width=1700 -o initial_window_height=900 -e nvtop"
   },
 
-  "disk": {
-    "path": "/",
-    "interval": 30,
-    "format": "<span foreground='#727169'>disk</span>:{percentage_used}%",
-    "tooltip-format": "{path}\n{used} / {total} ({percentage_used}%)\nFree: {free}",
+  "group/diskio": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/diskkey",
+      "custom/nvme"
+    ]
+  },
+
+  "custom/diskkey": {
+    "format": "<span foreground='#727169'>disk</span>",
+    "tooltip": false,
+    "on-click": "kitty --class yazi -e yazi ~"
+  },
+
+  "custom/nvme": {
+    "exec": "~/.config/waybar/scripts/nvme.sh",
+    "return-type": "json",
+    "interval": 5,
     "on-click": "kitty --class yazi -e yazi ~"
   },
 

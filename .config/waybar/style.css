@@ -83,7 +83,9 @@ tooltip label {
 #memory,
 #temperature,
 #custom-gpu,
-#disk,
+#diskio,
+#custom-diskkey,
+#custom-nvme,
 #network-io,
 #custom-netkey,
 #netio,
@@ -112,7 +114,7 @@ tooltip label {
 #cpu,
 #temperature,
 #custom-gpu,
-#disk,
+#diskio,
 #netio {
 	padding: 0 8px;
 }
@@ -127,7 +129,12 @@ tooltip label {
 	padding-left: 4px;
 }
 #custom-gpu { color: @sky; }
-#disk { color: @lavender; }
+#custom-diskkey {
+	padding: 0 4px 0 0;
+}
+#custom-nvme {
+	padding: 0;
+}
 #custom-netkey {
 	padding: 0 4px 0 0;
 }
@@ -139,7 +146,7 @@ tooltip label {
 #memory,
 #temperature,
 #custom-gpu,
-#disk {
+#diskio {
 	border-right: 1px solid @overlay0;
 }
 
@@ -212,7 +219,9 @@ tooltip label {
 #memory:hover,
 #temperature:hover,
 #custom-gpu:hover,
-#disk:hover,
+#diskio:hover,
+#custom-diskkey:hover,
+#custom-nvme:hover,
 #network-io:hover,
 #custom-netkey:hover,
 #netio:hover,
