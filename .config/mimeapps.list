@@ -27,3 +27,4 @@ x-scheme-handler/chrome=firefox.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 inode/directory=yazi.desktop
+x-scheme-handler/jetbrains=jetbrainsd.desktop
