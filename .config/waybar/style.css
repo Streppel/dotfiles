@@ -1,6 +1,7 @@
 /* hacker statusline on kanagawa. backup: ~/.config/waybar.bak-2026-08-22 */
 
 @import 'themes/kanagawa.css';
+@import 'orwatch.css';
 
 * {
 	border: none;
@@ -97,7 +98,6 @@ tooltip label {
 #keyboard-state,
 #idle_inhibitor,
 #custom-notification,
-#custom-orwatch,
 #custom-launcher,
 #custom-weather,
 #custom-updates,
@@ -176,14 +176,6 @@ tooltip label {
 #idle_inhibitor.activated { color: @yellow; }
 
 #custom-notification { color: @lavender; }
-
-#custom-orwatch { color: @mauve; }
-#custom-orwatch.warning { color: @yellow; }
-#custom-orwatch.critical {
-	background: @red;
-	color: @crust;
-}
-#custom-orwatch.disconnected { color: @overlay1; }
 
 #custom-launcher {
 	color: @green;
