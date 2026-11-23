@@ -90,13 +90,11 @@ tooltip label {
 #network-io,
 #custom-netkey,
 #netio,
-#backlight,
+#custom-hyprsunset,
 #network,
 #pulseaudio,
 #bluetooth,
-#language,
 #keyboard-state,
-#idle_inhibitor,
 #custom-notification,
 #custom-launcher,
 #custom-weather,
@@ -160,7 +158,7 @@ tooltip label {
 #battery.warning { color: @peach; }
 #battery.critical:not(.charging) { color: @red; }
 
-#backlight,
+#custom-hyprsunset,
 #pulseaudio { color: @yellow; }
 #pulseaudio.muted { color: @overlay1; }
 
@@ -169,11 +167,10 @@ tooltip label {
 #network.disconnected,
 #network.disabled { color: @red; }
 
-#language,
 #keyboard-state { color: @mauve; }
 
-#idle_inhibitor { color: @overlay1; }
-#idle_inhibitor.activated { color: @yellow; }
+#custom-hyprsunset { color: @yellow; }
+#custom-hyprsunset.paused { color: @overlay1; }
 
 #custom-notification { color: @lavender; }
 

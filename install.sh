@@ -81,11 +81,13 @@ link .config/waybar/modules.jsonc
 link .config/waybar/style.css
 link .config/waybar/themes/kanagawa.css
 link .config/waybar/scripts/gpu.sh
+link .config/waybar/scripts/hyprsunset-waybar.sh
 link .config/kitty/kitty.conf
 link .config/btop/btop.conf
 link .config/wireplumber/wireplumber.conf.d/51-default-nodes.conf
 link .config/mimeapps.list
 chmod 755 "$DOTFILES/.config/waybar/scripts/gpu.sh" \
+  "$DOTFILES/.config/waybar/scripts/hyprsunset-waybar.sh" \
   "$DOTFILES/.config/hypr/scripts/screenshot.sh" \
   "$DOTFILES/.config/hypr/scripts/ocr.sh" \
   "$DOTFILES/.config/hypr/scripts/logout.sh"

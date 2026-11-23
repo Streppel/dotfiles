@@ -112,23 +112,6 @@
     "on-click": "kitty --class sysmon -o remember_window_size=no -o initial_window_width=1700 -o initial_window_height=900 -e btop"
   },
 
-  // Idle inhibitor
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "󰌾",
-      "deactivated": "󰌵"
-    },
-    "tooltip-format-activated": "Idle inhibitor: ON",
-    "tooltip-format-deactivated": "Idle inhibitor: OFF"
-  },
-
-  // Language (Hyprland)
-  "hyprland/language": {
-    "format": "󰌌 {short}",
-    "tooltip-format": "Language: {long}"
-  },
-
   // Keyboard state
   "keyboard-state": {
     //"numlock": true,
@@ -140,12 +123,13 @@
     }
   },
 
-  // Backlight
-  "backlight": {
-    "format": "{icon} {percent: >3}%",
-    "format-icons": ["", ""],
-    "on-scroll-down": "brightnessctl set 5%-",
-    "on-scroll-up": "brightnessctl set +5%"
+  // Hyprsunset
+  "custom/hyprsunset": {
+    "exec": "~/.config/waybar/scripts/hyprsunset-waybar.sh",
+    "return-type": "json",
+    "format": "{text}",
+    "interval": 5,
+    "on-click": "~/.config/waybar/scripts/hyprsunset-waybar.sh toggle"
   },
 
   // Audio
